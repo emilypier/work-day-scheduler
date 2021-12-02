@@ -27,13 +27,17 @@ textarea{
 
 .time-block{
   text-align: center;
-  border-radius: 15px;
+  border-color: white;
+  border-top: line;
+  border-left: none;
+  border-right: none;
+  text-align: left;
 }
 
 .row {
   white-space: pre-wrap;
   height: 80px;
-  border-top: 1px solid white;;
+  border-top: 1px solid white;
 }
 
 .hour {
@@ -61,6 +65,7 @@ textarea{
   border-left: 1px solid black;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
+  border-style: none;
   background-color: #06AED5;
   color: white;
 }

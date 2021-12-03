@@ -1,25 +1,52 @@
 
-// var taskInput = document.querySelector(".time-block");
-var hourHeader = document.querySelector(".hour");
-
+var taskInput = $(".time-block");
+var hourHeader = $(".hour");
+//converting numberse in miitary time
+var hour9am = document.querySelector("#hour9");
+var hour10am = document.querySelector("#hour10");
+var hour11am = document.querySelector("#hour11");
+var hour12pm = document.querySelector("#hour12");
+var hour1pm = document.querySelector("#hour13");
+var hour2pm = document.querySelector("#hour14");
+var hour3pm = document.querySelector("#hour15");
 var localTime = moment();
-  console.log(localTime.format("HH"));
 
-// //find out what time it is
-// var currentHour = function() {
-//   moment();
-//   //format in military time
-//   moment().format(kk);
-//   console.log(currentHour);
-// }
+//convert military time into reg 12hr time
+function getRegTime(hour) {
+  if (hour > 12) {
+    return hour -12;
+  }
+  else {
+    return hour;
+  }
+}
 
-// //when saveBtn is clicked
-// $(".saveBtn").function() {
-//   //store tasks in local storage
-//   var saveTasks = function() {
-//   localStorage.setItem("tasks", JSON.stringify(tasks));
-//   }
-// };
+//change colors of each time block depending on past, present, future
+function updateHourColor() {
+  if(localTime = hour) {
+    taskInput.classList.add("present");
+  }
+  else if(localTime > hourHeader) {
+    taskInput.classList.add("future");
+  }
+  else {
+    taskInput.classList.add("past");
+  }
+};
+
+
+
+// console.log(localTime.format("HH"));
+
+//store tasks in local storage
+var saveTasks = function() {
+  localStorage.setItem("tasks", JSON.stringify(tasksInput));
+}
+
+
+//when saveBtn is clicked, run saveTasks function
+$(".saveBtn").ready(saveTasks);
+
 
 
 // //display tasks saved in local storage on page
@@ -30,30 +57,3 @@ var localTime = moment();
 
 //   }; 
 // }
-
-// //change colors of each time block depending on past, present, future
-// var currentHour = function() {
-//   moment().format('LT'); //today at current time
-//   console.log('LT');
-// };
-
-var changeColor = function() {
-  if(localTime = hourHeader) {
-  taskInput.classList.add("present");
-  console.log("present");
-  }
-  else if(localTime > hourHeader) {
-    taskInput.classList.add("future");
-    console.log("future");
-  }
-  else {
-    taskInput.classList.add("past");
-    console.log("past");
-  }
-};
-
-// //change time to military time
-// moment("16", "hh").format('hA')
-// console.log("")
-
-// currentDate.setDate

@@ -1,59 +1,45 @@
 
-var taskInput = $(".time-block");
-var hourHeader = $(".hour");
-//converting numberse in miitary time
-var hour9am = document.querySelector("#hour9");
-var hour10am = document.querySelector("#hour10");
-var hour11am = document.querySelector("#hour11");
-var hour12pm = document.querySelector("#hour12");
-var hour1pm = document.querySelector("#hour13");
-var hour2pm = document.querySelector("#hour14");
-var hour3pm = document.querySelector("#hour15");
-var localTime = moment();
+$('#currentDay').text(moment().format('dddd, MMMM Do'));
 
-//convert military time into reg 12hr time
-function getRegTime(hour) {
-  if (hour > 12) {
-    return hour -12;
-  }
-  else {
-    return hour;
-  }
-}
 
 //change colors of each time block depending on past, present, future
 function updateHourColor() {
-  if(localTime = hour) {
-    taskInput.classList.add("present");
-  }
-  else if(localTime > hourHeader) {
-    taskInput.classList.add("future");
-  }
-  else {
-    taskInput.classList.add("past");
-  }
+  var currentHour = moment().hours();
+
+  $('.time-block').each(function(){
+    var rowHour = parseInt($(this).attr('id'));
+
+    if(rowHour < currentHour){
+      $(this).addClass('past');
+    }else if(rowHour === currentHour){
+      $(this).removeClass('past');
+      $(this).addClass('present');
+    }else{
+      $(this).removeClass('past');
+      $(this).removeClass('present');
+      $(this).addClass('future');
+    }
+
+  })
 };
 
-
-
-// console.log(localTime.format("HH"));
-
+updateHourColor()
 //store tasks in local storage
 var saveTasks = function() {
-  localStorage.setItem("tasks", JSON.stringify(tasksInput));
+  var key = $(this).parent().attr('id');
+  var value = $(this).siblings('.description').val();
+
+  localStorage.setItem(key, value);
 }
 
-
 //when saveBtn is clicked, run saveTasks function
-$(".saveBtn").ready(saveTasks);
+$(".saveBtn").on('click', saveTasks);
 
-
-
-// //display tasks saved in local storage on page
-// var loadTasks = function() {
-//   tasks = JSON.parse(localStorage.getItem("tasks"));
-//   // if nothing in localStorage
-//   if (!tasks) {
-
-//   }; 
-// }
+//display tasks saved in local storage on page
+$('#9 .description').val(localStorage.getItem("9"));
+$('#10 .description').val(localStorage.getItem("10"));
+$('#11 .description').val(localStorage.getItem("11"));
+$('#12 .description').val(localStorage.getItem("12"));
+$('#13 .description').val(localStorage.getItem("13"));
+$('#14 .description').val(localStorage.getItem("14"));
+$('#15 .description').val(localStorage.getItem("15"));

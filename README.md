@@ -1,11 +1,13 @@
-## Work Day Scheduler
+# Work Day Scheduler
 
-# Description
+## Description
+This app allows you to add and delete tasks for your work day.
 
-# Image
-![Image of Work Day Scheduler.](/assets/code-quiz-screenshot.png)
+## Image
+![Image of Work Day Scheduler.](/assets/workdayschedule-screenshot.png)
 
-# Link to Application
+## Link to Application
+https://emilypier.github.io/work-day-scheduler/
 
-# Made by 
+## Made by 
 Emily Pierson
